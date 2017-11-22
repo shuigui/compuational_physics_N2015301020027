@@ -65,8 +65,5 @@ while True:
         canony==350
     pygame.display.update()
     fpsClock.tick(FPS)
-if (300<canonx<400) and (300<canony<400):
-    DISPLAYS.blit(Image, (250,250))
-    canonx==350
-    canony==350
+
     
