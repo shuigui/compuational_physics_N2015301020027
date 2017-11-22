@@ -1,9 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Nov 20 00:12:27 2017
 
-@author: panxiang
-"""
 import pygame,sys,math
 pygame.init()
 FPS=5
