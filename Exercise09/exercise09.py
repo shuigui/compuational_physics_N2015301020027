@@ -14,7 +14,7 @@ x=0.001
 for i in range(0,3000):
     rmi=(xm[i]**2+ym[i]**2)**(1/2)
     rji=(xj[i]**2+yj[i]**2)**(1/2)
-    rmj=((xm[i]-xj[i])**2+(ym[i]**2-yj[i]**2))**(1/2)
+    rmj=((xm[i]-xj[i])**2+(ym[i]-yj[i])**2)**(1/2)
     vmxi=vmx[i]-4*math.pi**2*xm[i]*dt/rmi**3-4*math.pi**2*x*(xm[i]-xj[i])*dt/rmj**3
     vmyi=vmy[i]-4*math.pi**2*ym[i]*dt/rmi**3-4*math.pi**2*x*(ym[i]-yj[i])*dt/rmj**3
     vmx.append(vmxi)
