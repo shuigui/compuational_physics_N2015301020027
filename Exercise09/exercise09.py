@@ -10,17 +10,19 @@ yj=[0]
 vjx=[0]
 vjy=[2*math.pi*5.2/11.86]
 dt=0.001
-x=0.001
+# Fix: Use correct mass ratios from the comment
+mass_ratio_jupiter = 0.000955  # Jupiter mass / Sun mass (mj/ms)
+mass_ratio_mars = 3.32e-7      # Mars mass / Sun mass (mm/ms)
 for i in range(0,3000):
     rmi=(xm[i]**2+ym[i]**2)**(1/2)
     rji=(xj[i]**2+yj[i]**2)**(1/2)
     rmj=((xm[i]-xj[i])**2+(ym[i]-yj[i])**2)**(1/2)
-    vmxi=vmx[i]-4*math.pi**2*xm[i]*dt/rmi**3-4*math.pi**2*x*(xm[i]-xj[i])*dt/rmj**3
-    vmyi=vmy[i]-4*math.pi**2*ym[i]*dt/rmi**3-4*math.pi**2*x*(ym[i]-yj[i])*dt/rmj**3
+    vmxi=vmx[i]-4*math.pi**2*xm[i]*dt/rmi**3-4*math.pi**2*mass_ratio_jupiter*(xm[i]-xj[i])*dt/rmj**3
+    vmyi=vmy[i]-4*math.pi**2*ym[i]*dt/rmi**3-4*math.pi**2*mass_ratio_jupiter*(ym[i]-yj[i])*dt/rmj**3
     vmx.append(vmxi)
     vmy.append(vmyi)
-    vjxi=vjx[i]-4*math.pi**2*xj[i]*dt/rji**3-4*math.pi**2*3.32*10**(-7)*(xj[i]-xm[i])*dt/rmj**3
-    vjyi=vjy[i]-4*math.pi**2*yj[i]*dt/rji**3-4*math.pi**2*3.32*10**(-7)*(yj[i]-ym[i])*dt/rmj**3
+    vjxi=vjx[i]-4*math.pi**2*xj[i]*dt/rji**3-4*math.pi**2*mass_ratio_mars*(xj[i]-xm[i])*dt/rmj**3
+    vjyi=vjy[i]-4*math.pi**2*yj[i]*dt/rji**3-4*math.pi**2*mass_ratio_mars*(yj[i]-ym[i])*dt/rmj**3
     vjx.append(vjxi)
     vjy.append(vjyi)
     xmi=xm[i]+vmx[i+1]*dt

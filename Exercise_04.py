@@ -38,12 +38,13 @@ def f (a,b):
 def g(c):
     return c - 9.8*dt
 for i in range(1,10000):
-    x1i = f(x1[i-1],vx1[i-1]*dt)
-    x2i = f(x2[i-1],vx2[i-1]*dt)
-    x3i = f(x3[i-1],vx3[i-1]*dt)
-    x4i = f(x4[i-1],vx4[i-1]*dt)
-    x5i = f(x5[i-1],vx5[i-1]*dt)
-    x6i = f(x6[i-1],vx6[i-1]*dt)
+    # Fix: Remove extra dt multiplication since f() already multiplies by dt
+    x1i = f(x1[i-1],vx1[i-1])
+    x2i = f(x2[i-1],vx2[i-1])
+    x3i = f(x3[i-1],vx3[i-1])
+    x4i = f(x4[i-1],vx4[i-1])
+    x5i = f(x5[i-1],vx5[i-1])
+    x6i = f(x6[i-1],vx6[i-1])
     vx1i = vx1[i-1]
     vx2i = vx2[i-1]
     vx3i = vx3[i-1]
