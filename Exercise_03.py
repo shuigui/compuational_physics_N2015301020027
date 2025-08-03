@@ -9,7 +9,9 @@ for i in range(1,int(T/dt)):
     vi =v[i-1] - g*dt
     ti = i * dt
     t.append(ti)
-    yi = -g * t[i]
+    # Correct kinematic equation: y = y0 + v0*t + 0.5*a*t^2
+    # For free fall from rest: y = -0.5*g*t^2
+    yi = -0.5 * g * t[i]**2
     v.append(vi)
     y.append(yi)
 pl.title('time_step = '+ str(dt))

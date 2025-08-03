@@ -6,7 +6,8 @@ d = '  #   #     #   ## #   #    #   #    #       #   #   # #   # #   #'
 e = '##### ##### #    # #####    #   #    #####  ###  #   # #   # #####'
 i = 1
 while(i<70):
-    os.system('cls')
+    # Cross-platform screen clear command
+    os.system('cls' if os.name == 'nt' else 'clear')
     print(a)
     print(b)
     print(c)

@@ -1,14 +1,17 @@
 import pylab as pl
 import math as math
+import numpy as np
 m=1
 q=0.5
 l=9.8
 g=9.8
 D=2/3
 dt=0.04
-w=[0 for x in range(0,350000)]
-b=[0 for x in range(0,350000)]
-t=[0 for x in range(0,350000)]
+# Use numpy arrays for better performance and memory efficiency
+max_iterations = 350000
+w = np.zeros(max_iterations, dtype=np.float64)
+b = np.zeros(max_iterations, dtype=np.float64)
+t = np.zeros(max_iterations, dtype=np.float64)
 F=[]
 y=[]
 w[0]=0
